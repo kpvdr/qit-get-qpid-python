@@ -6,6 +6,10 @@ pipeline {
         }
     }
 
+    triggers {
+        upstream(upstreamProjects: 'build-proton', threshold: hudson.model.Result.SUCCESS)
+    }
+
     stages {
         stage('Clean') {
             steps {
